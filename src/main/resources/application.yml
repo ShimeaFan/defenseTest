@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    active: dev # dev # test # pro
+---
+server:
+  port: 6521
+api: api
+open: open
+version: V1.0.0
+websocket-url: ws://10.16.105.24:8889/webSocket
+spring:
+  profiles: dev
+  data:
+    mongodb:
+      host: 10.16.105.13 # localhost
+      port: 27017
+      database: vssdb
+  servlet:
+    multipart:
+      max-request-size: 50MB
+      max-file-size: 10MB
+  application:
+    name: onlinecommand-service
+logging:
+config=classpath: logback-test.xml
