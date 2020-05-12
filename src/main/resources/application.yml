@@ -12,14 +12,18 @@ spring:
   profiles: dev
   data:
     mongodb:
-      host: 10.16.105.13 # localhost
+   #   host: 10.16.105.13 # localhost
+      host: localhost
       port: 27017
-      database: vssdb
+      database: dotayu
   servlet:
     multipart:
       max-request-size: 50MB
       max-file-size: 10MB
   application:
     name: onlinecommand-service
+  devtools:
+    livereload:
+      port: 35712
 logging:
-config=classpath: logback-test.xml
+config=classpath: logback-test.xm l
