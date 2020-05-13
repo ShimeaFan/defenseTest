@@ -14,7 +14,7 @@ import java.io.Serializable;
  */
 @Data
 @Document(collection = "user")
-public class UserEntity implements Serializable {
+public class UserEntity extends SuperEntity implements Serializable{
 
     @Id
     private String id;
