@@ -5,12 +5,13 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import com.mongodb.client.result.UpdateResult;
 import com.practice.test.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Update;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author fanShiHao
@@ -18,11 +19,16 @@ import org.springframework.web.bind.annotation.RestController;
  * @description
  */
 @RestController
-@RequestMapping("user")
+@Api(description = "用户操作接口")
+@Controller("user")
+@RequestMapping("/user")
 public class UserController {
 
   @Autowired private UserService userService;
 
+  @ApiOperation(value = "swagger2 示例 接口", notes="这里是notes信息",httpMethod = "POST")
+//  @ApiImplicitParam(name = "telephone", value = "电话号码", paramType = "query", required = true, dataType = "Integer")
+  @ResponseBody
   @RequestMapping(value = "save", method = RequestMethod.POST)
   public String save(@RequestBody JSONObject data) {
     return userService.save(data);

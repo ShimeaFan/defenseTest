@@ -3,7 +3,7 @@ spring:
     active: dev # dev # test # pro
 ---
 server:
-  port: 6521
+  port: 1106
 api: api
 open: open
 version: V1.0.0
@@ -25,5 +25,13 @@ spring:
   devtools:
     livereload:
       port: 35712
+ #thymeleaf start
+  thymeleaf:
+    mode: HTML5
+    encoding: utf-8
+    servlet:
+       content-type: text/html
+    cache: false
+ #thymeleaf end
 logging:
 config=classpath: logback-test.xm l
